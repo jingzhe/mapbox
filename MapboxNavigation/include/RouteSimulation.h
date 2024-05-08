@@ -16,7 +16,8 @@ class RouteSimulation {
 
 public:
     void startSimulation(const Route& route, const function<void (const Guidance)>& guidanceHandler);
-    [[nodiscard]] bool ready() const;
+    SimulationStatus simulationStatus() const;
+    void updateSimulation(SimulationCommand simulationCommand);
     ~RouteSimulation();
 
 private:
@@ -28,7 +29,8 @@ private:
     std::mutex lockQueue;
     std::condition_variable queueCheck;
     std::queue<Guidance> guidanceBuffer;
-    bool reachDestination = false;
+    std::atomic<SimulationStatus> status = { SimulationStatus::init };
+    std::atomic<SimulationCommand> command = { SimulationCommand::none };
 
 };
 

@@ -16,7 +16,8 @@ class Navigation {
 public:
     virtual void calculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler) = 0;
     virtual void startSimulation(const Route& route, const function<void (Guidance)>& guidanceHandler) = 0;
-    virtual bool simulationReady() = 0;
+    virtual void updateSimulation(SimulationCommand simulationCommand) = 0;
+    virtual SimulationStatus simulationStatus() = 0;
 
     virtual ~Navigation() = default;
 };

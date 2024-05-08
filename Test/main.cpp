@@ -1,6 +1,8 @@
 #include <iostream>
 #include <Model.h>
 #include <NavigationImpl.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 using namespace std;
 
@@ -34,9 +36,10 @@ int main() {
     string input;
     cin >> input;
     if (input == "y") {
-        auto start = std::chrono::system_clock::now();
-        std::time_t start_time = std::chrono::system_clock::to_time_t(start);
-        cout << "Simulation start..." << std::ctime(&start_time) << endl;
+        cout << "Simulation start..." << endl;
+        cout << "Enter p to pause for 10 seconds" << endl;
+        cout << "Enter s to stop the simulation" << endl;
+
         auto guidanceHandler = [](const Guidance& guidance) {
             auto now = std::chrono::system_clock::now();
             std::time_t time = std::chrono::system_clock::to_time_t(now);
@@ -45,12 +48,25 @@ int main() {
             cout << "[" << timeStr << "] | Street:" << guidance.status << " | speed:" << guidance.speed << " | speed limit:" << guidance.speedLimit << " | " << guidance.point.lon << ", " << guidance.point.lat << " | Maneuver:" << guidance.maneuver.type << " " << guidance.maneuver.instruction<< endl;
         };
         navigation->startSimulation(gRoute, guidanceHandler);
-        while (!navigation->simulationReady()) {
+        char buf[20];
+        fcntl(0, F_SETFL, fcntl(0, F_GETFL) | O_NONBLOCK);
+        while (navigation->simulationStatus() != SimulationStatus::done) {
+            long numRead = read(0, buf, 4);
+            if (numRead > 0) {
+                string command {buf};
+                command.erase(command.find_last_not_of("\t\n\v\f\r ") + 1);
+                if (command == "p") {
+                    cout << "Pause 10 seconds" << endl;
+                    navigation->updateSimulation(SimulationCommand::pause);
+                } else if (command == "s") {
+                    cout << "Simulation will be stopped" << endl;
+                    navigation->updateSimulation(SimulationCommand::stop);
+                }
+            }
+
             std::this_thread::sleep_for(1s);
         }
-        auto end = std::chrono::system_clock::now();
-        std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-        cout << "Simulation is done! " << std::ctime(&end_time) << endl;
+        cout << "Simulation is done!" << endl;
     } else {
         cout << "Exit simulator" << endl;
     }

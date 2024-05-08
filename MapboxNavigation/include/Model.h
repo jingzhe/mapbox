@@ -69,8 +69,11 @@ struct Guidance {
     std::string status;
 
     Guidance(const Point& point, double speed, std::string speedLimit, Maneuver maneuver, std::string status)
-        : point(point), speed(speed), speedLimit(speedLimit), maneuver(std::move(maneuver)), status(std::move(status)) {
+        : point(point), speed(speed), speedLimit(std::move(speedLimit)), maneuver(std::move(maneuver)), status(std::move(status)) {
     }
 };
+
+enum struct SimulationStatus {init, on_going, done};
+enum struct SimulationCommand {none, pause, stop};
 
 #endif //MAPBOXTEST_MODEL_H

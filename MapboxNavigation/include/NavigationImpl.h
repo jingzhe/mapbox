@@ -21,7 +21,8 @@ public:
 
     void calculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler) override;
     void startSimulation(const Route& route, const function<void (const Guidance)>& guidanceHandler) override;
-    bool simulationReady() override;
+    void updateSimulation(SimulationCommand simulationCommand) override;
+    SimulationStatus simulationStatus() override;
 
 private:
     std::unique_ptr<RouteCalculator> routeCalculator;

@@ -20,7 +20,11 @@ void NavigationImpl::startSimulation(const Route& route, const function<void (co
     routeSimulation->startSimulation(route, guidanceHandler);
 }
 
-bool NavigationImpl::simulationReady() {
-    return routeSimulation->ready();
+void NavigationImpl::updateSimulation(SimulationCommand simulationCommand) {
+    routeSimulation->updateSimulation(simulationCommand);
+}
+
+SimulationStatus NavigationImpl::simulationStatus() {
+    return routeSimulation->simulationStatus();
 }
 

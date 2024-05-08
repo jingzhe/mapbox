@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <string>
-#include <future>
+#include <thread>
 #include "Model.h"
 
 using namespace std;
