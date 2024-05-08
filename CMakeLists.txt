@@ -3,3 +3,4 @@ project(mapbox)
 
 add_subdirectory(MapboxNavigation)
 add_subdirectory(Test)
+add_subdirectory(UnitTest)
