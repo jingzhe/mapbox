@@ -64,11 +64,11 @@ struct Route {
 struct Guidance {
     Point point;
     double speed;
-    double speedLimit;
+    std::string speedLimit;
     Maneuver maneuver;
     std::string status;
 
-    Guidance(const Point& point, double speed, double speedLimit, Maneuver maneuver, std::string status)
+    Guidance(const Point& point, double speed, std::string speedLimit, Maneuver maneuver, std::string status)
         : point(point), speed(speed), speedLimit(speedLimit), maneuver(std::move(maneuver)), status(std::move(status)) {
     }
 };

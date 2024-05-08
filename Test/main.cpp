@@ -42,7 +42,7 @@ int main() {
             std::time_t time = std::chrono::system_clock::to_time_t(now);
             string timeStr = std::ctime(&time);
             timeStr.erase(timeStr.find_last_not_of("\t\n\v\f\r ") + 1);
-            cout << "[" << timeStr << "] | Street:" << guidance.status << " | speed:" << guidance.speed << " | " << guidance.point.lon << ", " << guidance.point.lat << " | Maneuver:" << guidance.maneuver.type << " " << guidance.maneuver.instruction<< endl;
+            cout << "[" << timeStr << "] | Street:" << guidance.status << " | speed:" << guidance.speed << " | speed limit:" << guidance.speedLimit << " | " << guidance.point.lon << ", " << guidance.point.lat << " | Maneuver:" << guidance.maneuver.type << " " << guidance.maneuver.instruction<< endl;
         };
         navigation->startSimulation(gRoute, guidanceHandler);
         while (!navigation->simulationReady()) {

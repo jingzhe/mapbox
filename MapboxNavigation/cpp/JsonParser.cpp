@@ -30,7 +30,7 @@ std::shared_ptr<Route> JsonParser::parseDirectionResponse(const string& response
         auto annotationJson = legJson.at("annotation");
         auto maxspeedsJson = annotationJson.at("maxspeed");
         for (const auto& maxspeedJson: maxspeedsJson) {
-            int speed = 40;
+            int speed = 0;
             try {
                 speed = maxspeedJson.at("speed");
             } catch (const json::exception& e) {
