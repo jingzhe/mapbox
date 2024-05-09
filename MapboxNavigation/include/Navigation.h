@@ -45,6 +45,9 @@ public:
     */
     virtual SimulationStatus simulationStatus() = 0;
 
+    /**
+     * virtual destructor
+    */
     virtual ~Navigation() = default;
 };
 

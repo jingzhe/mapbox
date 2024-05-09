@@ -11,8 +11,8 @@ Route gRoute;
 
 void calculateRoute(const std::unique_ptr<Navigation>& navigation) {
     auto startPoint = Point(25.467067, 65.08034);
-    auto destPoint = Point(25.4935245, 65.0084495);
-    //auto destPoint = Point(25.466874228304153, 65.08162289725789);
+    //auto destPoint = Point(25.4935245, 65.0084495); // 10 mins drive
+    auto destPoint = Point(25.466874228304153, 65.08162289725789); // 2 mins drive
 
     auto points = std::vector { startPoint, destPoint };
     auto routeHandler = [](const Route& route) {

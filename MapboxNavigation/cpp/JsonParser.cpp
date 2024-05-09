@@ -58,7 +58,7 @@ std::shared_ptr<Route> JsonParser::parseDirectionResponse(const string& response
                 }
                 leg.edges.emplace_back(edge);
             }
-            // Mapbox return maneuver for previous edge, which is not helpful. It should be for the current edge
+            // Mapbox return maneuver for previous edge, which is not helpful. It should be for the next edge
             // So I adjust maneuver for convenience
             for (int i = 0; i < leg.edges.size() - 1; i++) {
                 leg.edges[i].maneuver = leg.edges[i + 1].maneuver;
