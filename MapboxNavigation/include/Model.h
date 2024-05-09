@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 3.5.2024.
 //
 
-#ifndef MAPBOXTEST_MODEL_H
-#define MAPBOXTEST_MODEL_H
+#ifndef MAPBOX_MODEL_H
+#define MAPBOX_MODEL_H
 
 #include <format>
 #include <utility>
@@ -58,7 +58,7 @@ struct Route {
     std::vector<Leg> legs;
     double distance;
     double duration;
-    std::string status;
+    std::string status { "init" };
 };
 
 struct Guidance {
@@ -76,4 +76,4 @@ struct Guidance {
 enum struct SimulationStatus {init, on_going, done};
 enum struct SimulationCommand {none, pause, stop};
 
-#endif //MAPBOXTEST_MODEL_H
+#endif //MAPBOX_MODEL_H

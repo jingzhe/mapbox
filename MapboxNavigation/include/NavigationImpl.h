@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 4.5.2024.
 //
 
-#ifndef MAPBOXTEST_NAVIGATIONIMPL_H
-#define MAPBOXTEST_NAVIGATIONIMPL_H
+#ifndef MAPBOX_NAVIGATIONIMPL_H
+#define MAPBOX_NAVIGATIONIMPL_H
 
 #include <iostream>
 #include <string>
@@ -30,4 +30,4 @@ private:
 };
 
 
-#endif //MAPBOXTEST_NAVIGATIONIMPL_H
+#endif //MAPBOX_NAVIGATIONIMPL_H

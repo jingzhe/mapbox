@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 5.5.2024.
 //
 
-#ifndef MAPBOXTEST_ROUTESIMULATION_H
-#define MAPBOXTEST_ROUTESIMULATION_H
+#ifndef MAPBOX_ROUTESIMULATION_H
+#define MAPBOX_ROUTESIMULATION_H
 
 #include <mutex>
 #include <queue>
@@ -35,4 +35,4 @@ private:
 };
 
 
-#endif //MAPBOXTEST_ROUTESIMULATION_H
+#endif //MAPBOX_ROUTESIMULATION_H

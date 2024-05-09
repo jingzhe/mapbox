@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 6.5.2024.
 //
 
-#ifndef MAPBOXTEST_GUIDANCEGENERATOR_H
-#define MAPBOXTEST_GUIDANCEGENERATOR_H
+#ifndef MAPBOX_GUIDANCEGENERATOR_H
+#define MAPBOX_GUIDANCEGENERATOR_H
 
 #include <vector>
 #include "Model.h"
@@ -16,4 +16,4 @@ public:
 };
 
 
-#endif //MAPBOXTEST_GUIDANCEGENERATOR_H
+#endif //MAPBOX_GUIDANCEGENERATOR_H

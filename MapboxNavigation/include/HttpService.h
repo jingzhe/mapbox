@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 3.5.2024.
 //
 
-#ifndef MAPBOXTEST_HTTPSERVICE_H
-#define MAPBOXTEST_HTTPSERVICE_H
+#ifndef MAPBOX_HTTPSERVICE_H
+#define MAPBOX_HTTPSERVICE_H
 
 #include <string>
 #include "Model.h"
@@ -15,4 +15,4 @@ public:
 
 };
 
-#endif //MAPBOXTEST_HTTPSERVICE_H
+#endif //MAPBOX_HTTPSERVICE_H

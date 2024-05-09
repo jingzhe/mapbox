@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 5.5.2024.
 //
 
-#ifndef MAPBOXTEST_ROUTECALCULATOR_H
-#define MAPBOXTEST_ROUTECALCULATOR_H
+#ifndef MAPBOX_ROUTECALCULATOR_H
+#define MAPBOX_ROUTECALCULATOR_H
 
 #include <iostream>
 #include <string>
@@ -25,4 +25,4 @@ private:
 };
 
 
-#endif //MAPBOXTEST_ROUTECALCULATOR_H
+#endif //MAPBOX_ROUTECALCULATOR_H

@@ -13,16 +13,24 @@ void calculateRoute(const std::unique_ptr<Navigation>& navigation) {
     auto destPoint = Point(25.4935245, 65.0084495);
     //auto destPoint = Point(25.466874228304153, 65.08162289725789);
 
-    auto points = std::vector {startPoint, destPoint};
+    auto points = std::vector { startPoint, destPoint };
     auto routeHandler = [](const Route& route) {
         gRoute = route;
-        cout << "Your route is calculated, duration:" << route.duration / 60 << " minutes, distance:" << route.distance / 1000 << " km" << endl;
+        if (route.status == "Ok") {
+            cout << "Your route is calculated, duration:" << route.duration / 60 << " minutes, distance:"
+                 << route.distance / 1000 << " km" << endl;
+        } else {
+            cout << "Failed to calculate the route, status:" << route.status << endl;
+        }
     };
 
     navigation->calculateRoute(points, routeHandler);
-    while (gRoute.legs.empty()) {
+    while (gRoute.status != "Ok") {
         cout << "waiting for route calculation..." << endl;
         std::this_thread::sleep_for(200ms);
+        if (gRoute.status.find("Bad") != string::npos) {
+            break;
+        }
     }
 }
 
@@ -31,6 +39,9 @@ int main() {
     std::unique_ptr<Navigation> navigation = std::make_unique<NavigationImpl>();
 
     calculateRoute(navigation);
+    if (gRoute.status != "Ok") {
+        return 0;
+    }
     cout << "Do you want to start simulation? Type y and Enter to continue, type n and Enter to exit" << endl;
 
     string input;

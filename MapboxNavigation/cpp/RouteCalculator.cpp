@@ -11,6 +11,12 @@ void RouteCalculator::calculateRoute(const std::vector<Point>& points, const fun
 }
 
 void RouteCalculator::doCalculateRoute(const std::vector<Point>& points, const function<void (const Route& route)>& routeHandler) {
+    if (points.size() < 2) {
+        auto route = std::make_shared<Route>(Route {});
+        route->status = "Bad_Input";
+        routeHandler(*route);
+        return;
+    }
     auto res = HttpService::getRoute(points);
     auto route = JsonParser::parseDirectionResponse(res);
 

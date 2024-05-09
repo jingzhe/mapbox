@@ -2,8 +2,8 @@
 // Created by Jingzhe Yu on 4.5.2024.
 //
 
-#ifndef MAPBOXTEST_JSONPARSER_H
-#define MAPBOXTEST_JSONPARSER_H
+#ifndef MAPBOX_JSONPARSER_H
+#define MAPBOX_JSONPARSER_H
 
 #include <cstring>
 #include "Model.h"
@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif //MAPBOXTEST_JSONPARSER_H
+#endif //MAPBOX_JSONPARSER_H
