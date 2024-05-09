@@ -16,7 +16,7 @@ void calculateRoute(const std::unique_ptr<Navigation>& navigation) {
     auto points = std::vector {startPoint, destPoint};
     auto routeHandler = [](const Route& route) {
         gRoute = route;
-        cout << "Your route is calculated, duration:" << route.duration / 60 << " minutes, distance:" << route.distance << " km" << endl;
+        cout << "Your route is calculated, duration:" << route.duration / 60 << " minutes, distance:" << route.distance / 1000 << " km" << endl;
     };
 
     navigation->calculateRoute(points, routeHandler);
