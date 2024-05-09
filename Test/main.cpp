@@ -49,8 +49,8 @@ int main() {
     cin >> input;
     if (input == "y") {
         cout << "Simulation start..." << endl;
-        cout << "Enter p to pause for 10 seconds" << endl;
-        cout << "Enter s to stop the simulation" << endl;
+        cout << "Type p and Enter (You need to be very fast) to pause for 10 seconds" << endl;
+        cout << "Type s and Enter (You need to be very fast) to stop the simulation" << endl;
 
         auto guidanceHandler = [](const Guidance& guidance) {
             auto now = std::chrono::system_clock::now();
