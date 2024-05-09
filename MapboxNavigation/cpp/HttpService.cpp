@@ -10,9 +10,8 @@
 using namespace std;
 
 const string MAPBOX_URL = "https://api.mapbox.com/directions/v5/mapbox/driving/";
-const string MAPBOX_TOKEN = "pk.eyJ1IjoiamluZ3poZXl1IiwiYSI6ImNsdnFmNWc5bjBlam4ybG1oYXplOTl3bHgifQ.s5Y8Q8mqLKAamzTxp1LA8w";
 
-string HttpService::getRoute(const std::vector<Point>& points) {
+string HttpService::getRoute(const std::vector<Point>& points, const string& token) {
     cpr::Response r = cpr::Get(cpr::Url{MAPBOX_URL + Point::toUrlString(points)},
                                cpr::Parameters{{"alternatives", "true"},
                                                {"geometries", "geojson"},
@@ -20,7 +19,7 @@ string HttpService::getRoute(const std::vector<Point>& points) {
                                                {"overview", "full"},
                                                {"annotations", "distance,maxspeed"},
                                                {"steps", "true"},
-                                               {"access_token", MAPBOX_TOKEN}});
+                                               {"access_token", token}});
     //cout << r.text << endl;
     return r.text;
 }

@@ -11,7 +11,7 @@
 class HttpService {
 
 public:
-    static std::string getRoute(const std::vector<Point>& points);
+    static std::string getRoute(const std::vector<Point>& points, const std::string& token);
 
 };
 

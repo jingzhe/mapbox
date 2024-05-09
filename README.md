@@ -7,6 +7,8 @@ C++ 20 is used.
 * This is our core project.
 * The library which provides route calculation, route simulation features
 * It handles multiple threading inside the library for convenience, the client application doesn't need to create any thread.
+* Currently, it only supports driving mode, needs a little bit extra work to support other mode.
+* I use Linear interpolation to find accurate position between the coordinates from Mapbox API response for every single second
 * I try to make design as clean as possible, there some classes handle its own business: 
   * ```HttpService```: handles http class to Mapbox backend
   * ```JsonParser```: handles http response json parsing to Route object

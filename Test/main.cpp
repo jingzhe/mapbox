@@ -6,6 +6,7 @@
 
 using namespace std;
 
+const string MAPBOX_TOKEN = "pk.eyJ1IjoiamluZ3poZXl1IiwiYSI6ImNsdnFmNWc5bjBlam4ybG1oYXplOTl3bHgifQ.s5Y8Q8mqLKAamzTxp1LA8w";
 Route gRoute;
 
 void calculateRoute(const std::unique_ptr<Navigation>& navigation) {
@@ -24,7 +25,7 @@ void calculateRoute(const std::unique_ptr<Navigation>& navigation) {
         }
     };
 
-    navigation->calculateRoute(points, routeHandler);
+    navigation->calculateRoute(points, MAPBOX_TOKEN, routeHandler);
     while (gRoute.status != "Ok") {
         cout << "waiting for route calculation..." << endl;
         std::this_thread::sleep_for(200ms);

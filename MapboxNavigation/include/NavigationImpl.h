@@ -19,7 +19,7 @@ class NavigationImpl: public Navigation{
 public:
     NavigationImpl();
 
-    void calculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler) override;
+    void calculateRoute(const vector<Point>& points, const string& token, const function<void (const Route&)>& routeHandler) override;
     void startSimulation(const Route& route, const function<void (const Guidance)>& guidanceHandler) override;
     void updateSimulation(SimulationCommand simulationCommand) override;
     SimulationStatus simulationStatus() override;

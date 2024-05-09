@@ -18,9 +18,10 @@ public:
      * Calculates the route object
      *
      * @points the start coordinates, waypoints or destination coordinates
+     * @token Mapbox API token
      * @routeHandler callback function, after route is calculated, this callback will be called to inform client application
     */
-    virtual void calculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler) = 0;
+    virtual void calculateRoute(const vector<Point>& points,const string& token, const function<void (const Route&)>& routeHandler) = 0;
 
     /**
      * Starts the route simulation

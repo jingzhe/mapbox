@@ -12,8 +12,8 @@ NavigationImpl::NavigationImpl() {
     routeSimulation = std::make_unique<RouteSimulation>();
 }
 
-void NavigationImpl::calculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler) {
-    routeCalculator->calculateRoute(points, routeHandler);
+void NavigationImpl::calculateRoute(const std::vector<Point>& points, const string& token, const function<void (const Route&)>& routeHandler) {
+    routeCalculator->calculateRoute(points, token, routeHandler);
 }
 
 void NavigationImpl::startSimulation(const Route& route, const function<void (const Guidance)>& guidanceHandler) {

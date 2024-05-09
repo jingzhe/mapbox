@@ -16,10 +16,10 @@ class RouteCalculator {
 public:
     RouteCalculator() = default;
     ~RouteCalculator();
-    void calculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler);
+    void calculateRoute(const std::vector<Point>& points, const string& token, const function<void (const Route&)>& routeHandler);
 
 private:
-    static void doCalculateRoute(const std::vector<Point>& points, const function<void (const Route&)>& routeHandler);
+    static void doCalculateRoute(const std::vector<Point>& points, const string& token, const function<void (const Route&)>& routeHandler);
 
     std::unique_ptr<std::thread> thread;
 };
